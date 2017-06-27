@@ -1,0 +1,6 @@
+[0m[[0minfo[0m] [0m[32mCellTest:[0m[0m
+[0m[[0minfo[0m] [0m[32m- isLive[0m[0m
+[0m[[0minfo[0m] [0m[32m- toggleLife[0m[0m
+[0m[[0minfo[0m] [0m[32m- getPopulation[0m[0m
+[0m[[0minfo[0m] [0m[32m- incrementPopulation[0m[0m
+[0m[[0minfo[0m] [0m[32m- toString[0m[0m
