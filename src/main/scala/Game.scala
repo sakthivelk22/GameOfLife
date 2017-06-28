@@ -8,9 +8,8 @@ import org.GameOfLife.unit.Board
 class Game(boardSize:Int){
   val gameBoard = new Board(boardSize,null)
 
-  private def processNexGen(reps:Int,board:Board):Board={
+  private def processNexGen(reps:Int,board:Board):Board=
     if(reps>1) processNexGen(reps-1,new Board(boardSize,board))  else new Board(boardSize,board)
-  }
 
   def setGameBoard(row:Int,col:Int,state:Boolean):Boolean=gameBoard.setCell(row,col,state)
 
