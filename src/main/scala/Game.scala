@@ -9,12 +9,10 @@ class Game(boardSize:Int){
   val gameBoard = new Board(boardSize,null)
 
   private def processNexGen(reps:Int,board:Board):Board={
-    if(reps>0) processNexGen(reps-1,new Board(boardSize,board))
-    else new Board(boardSize,board)
+    if(reps>1) processNexGen(reps-1,new Board(boardSize,board))  else new Board(boardSize,board)
   }
 
-  def setGameBoard(row:Int,col:Int,state:Boolean):Unit=
-    gameBoard.setCell(row,col,state)
+  def setGameBoard(row:Int,col:Int,state:Boolean):Boolean=gameBoard.setCell(row,col,state)
 
   def GenX(reps:Int) = {
     gameBoard.display
@@ -32,5 +30,5 @@ object Game{
   a.setGameBoard(2,18,true)
   a.setGameBoard(2,19,true)
   a.setGameBoard(2,20,true)
-  a.GenX(72)
+  a.GenX(3)
 }
