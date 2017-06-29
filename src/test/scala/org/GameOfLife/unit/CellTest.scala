@@ -1,4 +1,5 @@
 package org.GameOfLife.unit
+
 /**
   * Created by KingOfBeasts on 25-06-2017.
   */

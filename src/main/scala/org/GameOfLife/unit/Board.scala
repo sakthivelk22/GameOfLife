@@ -14,14 +14,10 @@ class Board(boardSize:Int,parent:Board){
     getConsolidate[List[Cell]](getRow,boardSize,List[List[Cell]]())
   }
 
-  private def getNexGen(row:Int,col:Int):Boolean={
-    val population = getPopulation(row+1,col+1)
-    if(board(row)(col).isLive && population >= 2 && population<=3) true
-    else if ( !board(row)(col).isLive && population==3) true
-    else false
-  }
+  private def getNexGen(row:Int,col:Int):Boolean =
+    getPopulation(row+1,col+1) match { case 3 => true case 2 => board(row)(col).isLive  case _ => false }
 
-  def display={
+  def display:Unit={
     board.foreach(x=>{x.foreach(y=>print(y.toString));println()})
     println()
   }
@@ -29,17 +25,15 @@ class Board(boardSize:Int,parent:Board){
   def setCell(row:Int,col:Int,state:Boolean):Boolean =
     if(board(row-1)(col-1).isLive!=state) board(row-1)(col-1).toggleLife else state
 
-
   def getPopulation(row:Int,col:Int):Int={
-     def getCol(xrow: Int, acc: Int):Int=
+    def getCol(xrow: Int, acc: Int):Int=
       (if(xrow!=row-1 && board(xrow)(col-1).isLive) 1 else 0) +
         (if (col>1&&col<=boardSize && board(xrow)(col-2).isLive) 1 else 0) +
         (if (col>=1&&col<boardSize && board(xrow)(col).isLive) 1 else 0)
-
     getCol(row-1,0) + (if (row>1&&row<=boardSize) getCol(row-2,0) else 0) +
       (if (row>=1&&row<boardSize) getCol(row,0) else 0)
   }
 
-  val board = getBoard
+  val board:List[List[Cell]] = getBoard
   display
 }

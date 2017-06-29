@@ -1,4 +1,5 @@
 package org.GameOfLife
+
 /**
   * Created by KingOfBeasts on 25-06-2017.
   */
@@ -13,7 +14,8 @@ class Game(boardSize:Int){
 
   def setGameBoard(row:Int,col:Int,state:Boolean):Boolean=gameBoard.setCell(row,col,state)
 
-  def GenX(reps:Int) = {
+  def GenX(reps:Int):Unit = {
+    println("Generation ZERO .. ")
     gameBoard.display
     processNexGen(reps,gameBoard)
   }
@@ -29,5 +31,5 @@ object Game{
   a.setGameBoard(2,18,true)
   a.setGameBoard(2,19,true)
   a.setGameBoard(2,20,true)
-  a.GenX(3)
+  a.GenX(72)
 }

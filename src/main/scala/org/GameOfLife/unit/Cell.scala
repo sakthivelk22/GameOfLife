@@ -6,9 +6,6 @@ package org.GameOfLife.unit
 class Cell (lifeStatus:Boolean){
   private var life:Boolean = lifeStatus
   def isLive:Boolean = life
-  def toggleLife:Boolean = {
-    life = !life
-    isLive
-  }
-  override def toString: String = "|"+ {if (isLive==true) "X" else " "} +"|"
+  def toggleLife:Boolean = { life = !life;isLive }
+  override def toString: String = "|"+ ( if (isLive) "X" else " " ) +"|"
 }
