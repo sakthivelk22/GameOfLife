@@ -26,8 +26,7 @@ class Board(boardSize:Int,parent:Board){
     if(board(row-1)(col-1).isLive!=state) board(row-1)(col-1).toggleLife else state
 
   def getPopulation(row:Int,col:Int):Int={
-    def getCol(xrow: Int, acc: Int):Int=
-      (if(xrow!=row-1 && board(xrow)(col-1).isLive) 1 else 0) +
+    def getCol(xrow: Int, acc: Int):Int = (if(xrow!=row-1 && board(xrow)(col-1).isLive) 1 else 0) +
         (if (col>1&&col<=boardSize && board(xrow)(col-2).isLive) 1 else 0) +
         (if (col>=1&&col<boardSize && board(xrow)(col).isLive) 1 else 0)
     getCol(row-1,0) + (if (row>1&&row<=boardSize) getCol(row-2,0) else 0) +
