@@ -10,3 +10,7 @@ compile
 test
 run
 exit
+compile
+test
+compile
+test
